@@ -1,0 +1,5 @@
+name: GoogleAuthenticator
+version: 1.0
+author: ScaredDev
+main: me.scareddev.authenticator.Authenticator
+website: https://scared-development.de/
