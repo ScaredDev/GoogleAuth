@@ -20,7 +20,7 @@ public final class AuthListener implements Listener {
         if (!player.isOp())
             return;
 
-        final PlayerData playerData = Authenticator.getAuthenticator().getPlayerDataBus().getPlayerData(player);
+        final PlayerData playerData = Authenticator.getAuthenticator().getPlayerDataManager().getPlayerData(player);
 
         if (playerData.getGoogleKey().equals("NULL_CODE")) {
             final GoogleAuthenticator googleAuthenticator = new GoogleAuthenticator();
@@ -43,7 +43,7 @@ public final class AuthListener implements Listener {
     private void onAsyncChat(AsyncPlayerChatEvent asyncPlayerChatEvent) {
         final Player player = asyncPlayerChatEvent.getPlayer();
         final String message = asyncPlayerChatEvent.getMessage();
-        final PlayerData playerData = Authenticator.getAuthenticator().getPlayerDataBus().getPlayerData(player);
+        final PlayerData playerData = Authenticator.getAuthenticator().getPlayerDataManager().getPlayerData(player);
         if (!playerData.isInSecurity())
             return;
 
@@ -70,7 +70,7 @@ public final class AuthListener implements Listener {
     @EventHandler
     private void onMove(PlayerMoveEvent playerMoveEvent) {
         final Player player = playerMoveEvent.getPlayer();
-        final PlayerData playerData = Authenticator.getAuthenticator().getPlayerDataBus().getPlayerData(player);
+        final PlayerData playerData = Authenticator.getAuthenticator().getPlayerDataManager().getPlayerData(player);
 
         if (playerData.isInSecurity())
             playerMoveEvent.setCancelled(true);

@@ -4,13 +4,13 @@ import me.scareddev.authenticator.Authenticator;
 
 import java.util.UUID;
 
-public final class PlayerDataFactory {
+public final class PlayerData {
 
     private final UUID uuid;
     private String googleKey;
     private boolean inSecurity;
 
-    public PlayerDataFactory(UUID uuid) {
+    public PlayerData(UUID uuid) {
         this.uuid = uuid;
         this.googleKey =
                 Authenticator.getAuthenticator().getConfig().getString("GoogleCodes." + uuid) == null
